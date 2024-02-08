@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import CaseStudy from "~/components/case-study";
-import NavBar from "~/components/nav-bar";
 import Chorus from "../images/chorus.jpg";
 import Phoenix from "../images/phoenixbrandstrategy.png";
 import OnlyLdn from "../images/onlyldn-screenrecording.mov";

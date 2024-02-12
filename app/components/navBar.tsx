@@ -15,8 +15,8 @@ export const NavBar = () => {
         </NavLink>
         <div className="nav-bar__nav-items flex font-thin flex-col text-right tracking-wider">
           <NavLink to="/portfolio">Work</NavLink>
-          <NavLink to="portfolio#about">About</NavLink>
-          <NavLink to="portfolio#contact">Contact</NavLink>
+          <NavLink to="portfolio#contact-about">About</NavLink>
+          <NavLink to="portfolio#contact-about">Contact</NavLink>
         </div>
       </div>
       <nav>

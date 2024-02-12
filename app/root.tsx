@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import styles from "~/styles/global.css";
-import NavBar from "./components/nav-bar";
+import NavBar from "./components/navBar";
 
 export const links: LinksFunction = () => {
   return [

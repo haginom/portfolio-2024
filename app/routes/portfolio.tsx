@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import CaseStudy from "~/components/case-study";
+import CaseStudy from "~/components/caseStudy";
 import Chorus from "../images/chorus.jpg";
 import Phoenix from "../images/phoenixbrandstrategy.png";
 import OnlyLdn from "../images/onlyldn-screenrecording.mov";
@@ -94,7 +94,7 @@ export const Portfolio = () => {
       />
       <CaseStudy
         number={"002"}
-        direction="right"
+        direction="left"
         webpage={Chorus}
         about={
           "CHORUS is a Music Label dedicated to connecting Asian music and culture with the world. Amongst their clients are Rina Sawayama, Fuji Kaze, Millennium Parade and the Southbank Center."
@@ -106,7 +106,7 @@ export const Portfolio = () => {
 
       <CaseStudy
         number={"004"}
-        direction="left"
+        direction="right"
         about={
           "Lets Grow is an online educational resources platform for children aged 3-5yrs. They needed an online space to place their resources and to be able to sell their products."
         }
@@ -116,7 +116,7 @@ export const Portfolio = () => {
       />
       <CaseStudy
         number={"005"}
-        direction="right"
+        direction="left"
         about={"Ecommerce platform for trainers."}
         designer={"Self Designed"}
         webpage={GoldenShoes}
@@ -125,7 +125,7 @@ export const Portfolio = () => {
       />
       <CaseStudy
         number={"006"}
-        direction="left"
+        direction="right"
         about={
           "ESEA Music is a non-profit community group led by and for UK-based East & Southeast Asian music industry professionals and artists with over 350 members. "
         }
@@ -168,6 +168,7 @@ export const Portfolio = () => {
             Github: <a href="https://github.com/haginom">@haginom</a>{" "}
           </p>
         </div>
+        <div id="contact-about"></div>
       </aside>
     </>
   );

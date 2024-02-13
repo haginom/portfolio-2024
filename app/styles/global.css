@@ -217,7 +217,6 @@ main {
   padding: 0;
   border: none;
   border-radius: 12px;
-  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
 }
 
 .custom-button span {
@@ -255,7 +254,6 @@ main {
     padding: 0;
     border: none;
     border-radius: 30px;
-    background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
   }
   .custom-button span {
     position: relative;
@@ -273,7 +271,7 @@ main {
   content: "";
   right: 0;
   top: 0;
-  background: #c797eb;
+  background: grey;
   transition: all 0.3s ease;
   border-radius: 30px;
 }
@@ -289,14 +287,14 @@ main {
   background: transparent;
   box-shadow: none;
 }
-.custom-button:hover:before {
+/* .custom-button:hover:before {
   height: 100%;
 }
 .custom-button:hover:after {
   width: 100%;
-}
+} */
 .custom-button span:hover {
-  color: #c797eb;
+  color: grey;
 }
 .custom-button span:before,
 .custom-button span:after {
@@ -304,7 +302,7 @@ main {
   content: "";
   left: 0;
   bottom: 0;
-  background: #c797eb;
+  background: grey;
   transition: all 0.3s ease;
 }
 .custom-button span:before {
@@ -315,17 +313,45 @@ main {
   width: 0%;
   height: 2px;
 }
-.custom-button span:hover:before {
-  height: 100%;
+/* .custom-button span:hover:before { */
+/* height: 100%;
 }
 .custom-button span:hover:after {
+  width: 100%;
+} */
+
+.custom-button.selected {
+  box-shadow: none;
+  background: transparent;
+}
+.custom-button.selected span {
+  color: grey;
+}
+.custom-button.selected:before {
+  height: 100%;
+}
+.custom-button.selected:after {
+  width: 100%;
+}
+
+.custom-button.selected span:before {
+  height: 100%;
+}
+.custom-button.selected span:after {
   width: 100%;
 }
 
 article {
   display: flex;
+  gap: 2.5%;
   flex-direction: column;
   border-top: 0.1rem solid #838384;
+  padding: 0.5rem;
+}
+@media (min-width: 568px) {
+  article {
+    gap: 0;
+  }
 }
 
 article > * {
@@ -474,8 +500,11 @@ article > .large-column-left {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-.website-info-about {
-  margin-bottom: 2rem;
+
+@media (min-width: 628px) {
+  .website-info-about {
+    margin-bottom: 2rem;
+  }
 }
 
 .show-detail {
@@ -545,9 +574,19 @@ aside {
   display: flex;
   margin: 0.5rem;
   margin-top: 20rem;
+  flex-wrap: wrap;
+  padding: 0.5rem;
 }
 
 aside > * {
   margin: 1rem;
   max-width: 32rem;
+}
+
+.hide {
+  display: none;
+}
+
+div.nav-bar__nav-items > a:hover > .hide {
+  display: inline-block;
 }

@@ -1,12 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import CaseStudy from "~/components/caseStudy";
-import Chorus from "../images/chorus.jpg";
-import Phoenix from "../images/phoenixbrandstrategy.png";
-import OnlyLdn from "../images/onlyldn-screenrecording.mov";
-import LetsGrow from "../images/lets-grow.jpg";
-import GoldenShoes from "../images/Goldenshoes.png";
-import ESEA from "../images/esea-screenrecording.mov";
-import facFinal from "../images/facFinal.png";
+import CaseStudyData from "~/data/caseStudy";
+
 import { useState, useMemo, MouseEvent } from "react";
 
 export const meta: MetaFunction = () => {
@@ -54,6 +49,8 @@ export const Portfolio = () => {
     }
   };
 
+  console.log(filterValues, "case study data");
+
   return (
     <>
       <h1 className="text-5xl md:text-9xl font-thin antialiased mt-10 md:m-10 pb-10 pt-10 pl-2">
@@ -74,127 +71,25 @@ export const Portfolio = () => {
         ))}
       </div>
 
-      <CaseStudy
-        number={"001"}
-        direction="left"
-        about={
-          "Phoenix is a brand strategy, research and insights consultancy, who work with Noom, Lenovo and Whatsapp. They needed a website that would showcase their work and their team."
-        }
-        designer={"SHION Studios"}
-        webpage={Phoenix}
-        website={"https://phoenixbrandstrategy.com/"}
-        showDetail={false}
-        tags={[
-          "Client Project",
-          "React",
-          "Gatsby",
-          "Javascript",
-          "Bootstrap",
-          "CMS",
-          "GraphQL",
-        ]}
-        filterValues={filterValues}
-      />
-      <CaseStudy
-        number={"002"}
-        direction="right"
-        about={
-          "Only Ldn is a multi award winning London based editor in TV, documentary, music videos, commercials, fashion films and branded content."
-        }
-        video={OnlyLdn}
-        website={"https://gentle-bonbon-e8ae48.netlify.app/"}
-        showDetail={false}
-        tags={[
-          "Client Project",
-          "React",
-          "Gatsby",
-          "Typescript",
-          "TailwindCSS",
-          "Framer Motion",
-          "Styled Components",
-        ]}
-        filterValues={filterValues}
-      />
-      <CaseStudy
-        number={"003"}
-        direction="left"
-        webpage={Chorus}
-        about={
-          "CHORUS is a Music Label dedicated to connecting Asian music and culture with the world. Amongst their clients are Rina Sawayama, Fuji Kaze, Millennium Parade and the Southbank Center."
-        }
-        designer={"WAN Studios"}
-        website={"https://chorus.asia/"}
-        showDetail={false}
-        tags={[
-          "Client Project",
-          "React",
-          "Gatsby",
-          "Typescript",
-          "Javascript",
-          "Framer Motion",
-        ]}
-        filterValues={filterValues}
-      />
-      <CaseStudy
-        number={"004"}
-        direction="right"
-        about={
-          "Lets Grow is an online educational resources platform for children aged 3-5yrs. They needed an online space to place their resources and to be able to sell their products."
-        }
-        webpage={LetsGrow}
-        website={"https://letsgrow.org.uk/"}
-        showDetail={false}
-        tags={[
-          "Client Project",
-          "React",
-          "Gatsby",
-          "tachyons",
-          "Javascript",
-          "Styled Components",
-        ]}
-        filterValues={filterValues}
-      />
-      <CaseStudy
-        number={"005"}
-        direction="left"
-        about={"Ecommerce platform for trainers."}
-        designer={"Self Designed"}
-        webpage={GoldenShoes}
-        website={"https://github.com/haginom/ecommerce"}
-        showDetail={false}
-        filterValues={filterValues}
-        tags={["Own Project", "React", "Javascript"]}
-      />
-      <CaseStudy
-        number={"006"}
-        direction="right"
-        about={
-          "ESEA Music is a non-profit community group led by and for UK-based East & Southeast Asian music industry professionals and artists with over 350 members. "
-        }
-        video={ESEA}
-        showDetail={false}
-        filterValues={filterValues}
-        tags={["Own Project", "GSAP", "Javascript"]}
-      />
-      <CaseStudy
-        number={"007"}
-        direction="left"
-        about={
-          "Final project for Founders and Coders Bootcamp. The UK Travel Guide is a web app that allows users to search and contribute itineraries for UK-based trips, in order to make UK travel more accessible. Upon entering the app, users are able to look through itineraries which have been added by others, using filters to customise their search. In order to save their 'favourites' or add itineraries of their own to the database, they need to sign up and create a profile. Once signed in, users have full access to the app."
-        }
-        webpage={facFinal}
-        website="https://github.com/fac21/final-project-RASE"
-        showDetail={false}
-        filterValues={filterValues}
-        tags={[
-          "NextJS",
-          "React",
-          "PostgreSQL",
-          "Cypress",
-          "Styled Components",
-          "Figma",
-        ]}
-      />
+      {filterValues.length === 0
+        ? CaseStudyData.map((caseStudy, index) => (
+            <CaseStudy
+              number={index + 1}
+              direction={index % 2 === 0 ? "right" : "left"}
+              key={index}
+              {...caseStudy}
+            />
+          ))
+        : CaseStudyData.filter((caseStudy) =>
+            caseStudy.tags.some((tag) => filterValues.includes(tag))
+          ).map((caseStudy, index) => (
+            <CaseStudy
+              number={index + 1}
+              direction={index % 2 === 0 ? "right" : "left"}
+              key={index}
+              {...caseStudy}
+            />
+          ))}
 
       <aside className="justify-around">
         <div className="about-blurb font-thin">
